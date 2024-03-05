@@ -1,0 +1,34 @@
+
+This file describes the example provided which uses GTerm as the core of
+an X terminal.  This example uses Linux BSD-style pty's, so may not work
+on most other systems.  While GTerm itself is object oriented, the
+xterm example is not.  I decided to do this because it was easy and so as
+to show that using library code written in C++ need not be scary to C
+programmers.  I find that this terminal is a great deal faster than
+xterm and is more compliant to VT100/102 specs.
+
+Sitting on top of GTerm, XTerm provides the following functionality:
+- pseudo-tty management
+- X11 key translations to escape sequences (with all applicable modes)
+- X11 drawing of characters, bitblts, and rectangle fills
+- X11 event processing of keys, exposures, configuration change
+- management of the pty and X11 data streams with delayed display updates
+
+Things it does not do:
+- Window size change signal sent to slave tty
+- Lots of other things
+
+The following files are included in the distribution:
+
+xintfc.hpp         - class definition for XTerm, etc.
+xintfc.cpp         - X11 functionality for XTerm
+xkeys.cpp          - X11 key translation tables
+pseudo.cpp         - Linux pseudoterminal functions
+
+If the internals of the XTerm example need to be documented, let me know,
+and I'll add explanations.  The code itself should be reasonably 
+self-explanatory.
+
+When built, the resulting executable should be made suid root for best
+functionality.
+

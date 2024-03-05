@@ -1,0 +1,14 @@
+actions.o: actions.cpp gterm.hpp
+gterm.o: gterm.[ch]pp
+states.o: states.cpp gterm.hpp
+utils.o: utils.cpp gterm.hpp
+vt52_states.o: vt52_states.cpp gterm.hpp
+
+pseudo.o: pseudo.[ch]pp pseudo_openpty.cpp pseudo_unix98.cpp pseudo_classic.cpp
+pseudo.hpp:  pseudo_openpty.hpp pseudo_unix98.hpp pseudo_classic.hpp
+
+xintfc.o: xintfc.[ch]pp pseudo.hpp gterm.hpp
+xkeys.o: xkeys.cpp gterm.hpp xintfc.hpp
+
+actions.o gterm.o states.o utils.o vt52_states.o: Makefile Makefile.config
+pseudo.o xintfc.o xkeys.o: Makefile Makefile.config

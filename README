@@ -1,0 +1,60 @@
+
+GTERM v. 1.0
+
+Copyright 1999, Timothy Miller
+tim@techsource.com
+
+This is the first release version of GTerm.  I intend to further clean
+up the code in the future, and I will incorporate changes suggested by
+others.  I expect to add additional functionality to both the core and the
+X11 example in the future.
+
+Old licensing terms of this software were as follows (basically GPL):
+
+- You may distribute this source code, unmodified, to others, with 
+  documentation.
+- You may modify it for your own use and distribute the modified version,
+  with documentation, as long as it is clearly indicated who the original 
+  author is (Timothy Miller).
+- You may not distribute this software in its original or modified form
+  without also making the source code available for free.
+
+New licensing terms put the Core and Utility sections under LGPL and the
+X11 example under GPL.
+
+
+GTerm is an abstract terminal emulator core.  It knows how to process VT100
+VT102, and VT52 codes and format output properly for display.  But it does
+not know how to acquire input or physically display output.  You must supply 
+that functionality.  An example of that functionality is provided.  This 
+system is written in C++.
+
+The GTerm core:
+
+Makefile	Makefile to compile GTerm and XTerm example
+gterm.hpp	Header for all other GTerm files
+gterm.cpp	High-level terminal functions
+states.cpp	State machine tables for emulator
+vt52_states.cpp	State machine tables for VT52 mode
+actions.cpp	Operations controlled by state machine
+utils.cpp	Utility functions used by actions
+
+
+Utility:
+
+pseudo*.cpp	Linux pseudoterminal functions
+
+
+The X11 example which uses GTerm:
+
+xintfc.hpp	Header for XTerm
+xintfc.cpp	X11 functionality for XTerm
+xkeys.cpp	X11 key translation tables
+
+Other documentation
+
+gterm.doc	Explanation of the use of the GTerm core
+xintfc.doc	Some information about the X11 example
+
+The resulting executable of the build should be made suid root for best
+functionality.
