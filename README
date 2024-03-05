@@ -1,3 +1,10 @@
+25 years ago, I wrote a VT102 terminal emulator, which I published on
+sourceforge. I recently needed one, and to my amazement, it was still
+available in a crusty old read-only CVS repository. For further 
+preservation, I'm reuploading it here. Additionally, I am changing the
+licensing terms to Apache 2.0, which overrides the terms stated in the
+original README below.
+
 
 GTERM v. 1.0
 
